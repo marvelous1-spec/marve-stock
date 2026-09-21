@@ -1,0 +1,12 @@
+.nav-action,.logout-button,.signup-button{border:1px solid #d5deea;border-radius:7px;background:#fff;color:#11243c;font:700 13px/1 Inter,Segoe UI,Arial,sans-serif;cursor:pointer;padding:10px 13px}.nav-action:hover,.logout-button:hover{border-color:#0b66d4;color:#0b66d4}.signup-button{background:#0b66d4;border-color:#0b66d4;color:#fff}.account-dock{position:fixed;z-index:20;left:22px;right:22px;bottom:22px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}.account-dock>div{display:flex;gap:9px;pointer-events:auto}.market-reveal{opacity:0;transform:translateY(42px) scale(.985);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}.market-reveal.is-visible{opacity:1;transform:none}.instrument{display:flex;align-items:center;gap:11px;min-width:0}.instrument small{color:#647287}.stock-logo{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border:1px solid #d7e2ed;border-radius:50%;overflow:hidden;background:#eaf2fb;color:#0b4c8b;font-size:11px;font-weight:800;letter-spacing:.3px}.stock-logo img{width:100%;height:100%;object-fit:contain;background:#fff}.settings-dialog p{color:#647287}.settings-dialog .outline{margin-top:14px}@media(max-width:840px){.account-dock{left:14px;right:14px;bottom:14px}.nav-action,.logout-button,.signup-button{padding:9px 11px;font-size:12px}} 
+
+.account-dock {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .22s ease, transform .22s ease;
+}
+
+.account-dock.dock-visible {
+  opacity: 1;
+  transform: none;
+}

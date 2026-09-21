@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title>Marve Invest</title>
+  <rect width="48" height="48" rx="8" fill="#071a2f"/>
+  <path d="M10 34V20l7 8 7-14 7 14 7-8v14" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <path d="M35 13h5v5" fill="none" stroke="#4fd39a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+</svg>

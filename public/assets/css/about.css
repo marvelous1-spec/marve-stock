@@ -1,0 +1,11 @@
+.about-section { padding: 96px 0 20px; }
+.about-heading { max-width: 720px; padding-bottom: 42px; }
+.about-heading .caption { margin: 0 0 10px; }
+.about-heading h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.05; }
+.about-heading > p:not(.caption) { max-width: 640px; margin: 20px 0 0; color: #647287; font-size: 17px; line-height: 1.65; }
+.member-message { color: #0b8753 !important; font-weight: 700; }
+.about-row { display: grid; grid-template-columns: minmax(150px, .65fr) minmax(0, 1.65fr); gap: 30px; padding: 36px 0; border-top: 1px solid #dce4ed; }
+.about-row .caption { margin: 4px 0 0; }
+.about-row h3 { margin: 0; font-size: 25px; line-height: 1.15; }
+.about-row p:not(.caption) { max-width: 670px; margin: 12px 0 0; color: #647287; font-size: 16px; line-height: 1.65; }
+@media (max-width: 760px) { .about-section { padding-top: 70px; } .about-row { grid-template-columns: 1fr; gap: 12px; } .about-row h3 { font-size: 22px; } }
