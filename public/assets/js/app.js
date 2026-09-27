@@ -33,7 +33,11 @@
     try {
       const response = await fetch(`api/v1/index.php?route=${route}`, {headers: {'Content-Type': 'application/json', ...(csrf ? {'X-CSRF-Token': csrf} : {}), ...(options.headers || {})}, ...options, signal: options.signal || controller.signal});
       const result = await response.json().catch(() => null);
-      if (!response.ok || !result?.success) throw new Error(result?.message || 'The server could not complete the request.');
+      if (!response.ok || !result?.success) {
+        const error = new Error(result?.message || 'The server could not complete the request.');
+        error.code = result?.error_code || '';
+        throw error;
+      }
       return result;
     } finally {
       window.clearTimeout(timeout);
@@ -115,7 +119,8 @@
     document.body.append(settings); settings.addEventListener('close', () => settings.remove()); settings.showModal();
   }
   async function setupCsrf() { const result = await call('csrf'); csrf = result.data.token; }
-  const dialog = $('#authDialog'); let register = false;
+  const dialog = $('#authDialog');
+  let register = false;
   function showAuth(isRegister, symbol = '') { register = isRegister; $('#authTitle').textContent = register ? 'Create your account' : 'Sign in to continue'; $('#authIntro').textContent = register ? 'Create an account to join Marve.' : `Sign in to continue with ${symbol || 'your account'}.`; $('#registrationFields').hidden = !register; $('input[name=password]').autocomplete = register ? 'new-password' : 'current-password'; $('#switchAuth').hidden = true; $('#authMessage').textContent = ''; dialog.showModal(); }
   $('.close').type = 'button';
   $('.close').addEventListener('click', (event) => { event.preventDefault(); dialog.close(); });

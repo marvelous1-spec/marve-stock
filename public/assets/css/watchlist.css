@@ -1,3 +1,24 @@
-.list-empty { color: var(--slate); margin-top: 14px; }
-.list-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 13px; }
-.watch-button { margin-left: 8px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--blue); font: inherit; font-size: 12px; font-weight: 700; padding: 5px 8px; cursor: pointer; }
+.list-empty {
+  color: var(--slate);
+  margin-top: 14px;
+}
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.watch-button {
+  margin-left: 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--blue);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 8px;
+  cursor: pointer;
+}

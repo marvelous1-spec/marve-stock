@@ -1,5 +1,29 @@
-.brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand-mark { width: 34px; height: 34px; flex: 0 0 34px; }
-.brand-name { color: #071a2f; font-size: 30px; font-weight: 800; line-height: 1; }
-.brand-name span { color: #0b66d4; }
-@media (max-width: 760px) { .brand-mark { width: 30px; height: 30px; flex-basis: 30px; } .brand-name { font-size: 26px; } }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+}
+.brand-name {
+  color: #071a2f;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+}
+.brand-name span {
+  color: #0b66d4;
+}
+@media (max-width: 760px) {
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+  .brand-name {
+    font-size: 26px;
+  }
+}

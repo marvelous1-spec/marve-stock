@@ -5,7 +5,7 @@ namespace App\Mail;
 
 final class UnavailableMailer implements MailerInterface
 {
-    public function sendVerification(string $recipient, string $firstName, string $verificationUrl): void
+    public function sendVerification(string $recipient, string $firstName, string $verificationCode): void
     {
         throw new \RuntimeException('Email delivery is not configured.');
     }

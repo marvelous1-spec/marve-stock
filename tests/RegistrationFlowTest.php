@@ -45,7 +45,6 @@ try {
     echo "RegistrationFlowTest passed\n";
 } finally {
     if ($userId > 0) {
-        $db->prepare('DELETE FROM email_verifications WHERE user_id = ?')->execute([$userId]);
         $db->prepare('DELETE FROM audit_logs WHERE actor_id = ? AND actor_type = "user"')->execute([$userId]);
         $db->prepare('DELETE FROM users WHERE id = ?')->execute([$userId]);
     }

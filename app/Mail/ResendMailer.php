@@ -7,7 +7,7 @@ use App\Config\Env;
 
 final class ResendMailer implements MailerInterface
 {
-    public function sendVerification(string $recipient, string $firstName, string $verificationUrl): void
+    public function sendVerification(string $recipient, string $firstName, string $verificationCode): void
     {
         $apiKey = trim((string) Env::get('RESEND_API_KEY', ''));
         $sender = trim((string) Env::get('MAIL_FROM', ''));
@@ -19,13 +19,13 @@ final class ResendMailer implements MailerInterface
         }
 
         $safeName = htmlspecialchars($firstName, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $safeUrl = htmlspecialchars($verificationUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $safeCode = htmlspecialchars($verificationCode, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         $payload = json_encode([
             'from' => $sender,
             'to' => [$recipient],
-            'subject' => 'Verify your Marve Invest email address',
-            'html' => '<p>Hello ' . $safeName . ',</p><p>Verify your email address to activate your account.</p><p><a href="' . $safeUrl . '">Verify email address</a></p><p>This link expires in 24 hours.</p>',
-            'text' => "Hello {$firstName},\n\nVerify your email address:\n{$verificationUrl}\n\nThis link expires in 24 hours.",
+            'subject' => 'Your Marve Invest verification code',
+            'html' => '<p>Hello ' . $safeName . ',</p><p>Use this code to verify your email address and activate your account:</p><p style="font-size:28px;font-weight:700;letter-spacing:6px">' . $safeCode . '</p><p>This code expires in 15 minutes. Do not share it with anyone.</p>',
+            'text' => "Hello {$firstName},\n\nYour Marve Invest verification code is: {$verificationCode}\n\nThis code expires in 15 minutes. Do not share it with anyone.",
         ], JSON_THROW_ON_ERROR);
 
         $request = curl_init('https://api.resend.com/emails');

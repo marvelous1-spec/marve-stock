@@ -49,7 +49,7 @@ final class AuthService
     {
         $db = Database::connection(); $q = $db->prepare('SELECT id, first_name, password_hash, status FROM users WHERE email = ? LIMIT 1'); $q->execute([strtolower(trim($email))]); $u = $q->fetch();
         if (!$u || !password_verify($password, $u['password_hash'])) throw new \DomainException('Invalid email or password.');
-        if ($u['status'] !== 'active') throw new \DomainException('Verify your email before signing in.');
+        if (!in_array($u['status'], ['active', 'pending_email'], true)) throw new \DomainException('This account is not available for sign in.');
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_regenerate_id(true);
         }
